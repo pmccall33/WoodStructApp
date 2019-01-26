@@ -1,0 +1,4 @@
+// ##userauth
+// - username
+// - password
+// - email

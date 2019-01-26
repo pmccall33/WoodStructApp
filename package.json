@@ -1,0 +1,29 @@
+{
+  "name": "ga_unit2-project",
+  "version": "1.0.0",
+  "description": "Educational woodworking website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogey1185/GA_Unit2-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bogey1185/GA_Unit2-Project/issues"
+  },
+  "homepage": "https://github.com/bogey1185/GA_Unit2-Project#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.6",
+    "superagent": "^4.1.0"
+  }
+}
