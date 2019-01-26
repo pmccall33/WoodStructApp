@@ -36,7 +36,7 @@ Educational woodworking website
 	Messaging - 
 
 #### People - 
- * David Boegarts - Web Developer/Woodworker
+ * David Bogaerts - Web Developer/Woodworker
  * Peter Murray - Web Developer/Woodworker
 
 #### License -
