@@ -53,7 +53,6 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newProject = await Project.create(req.body);
-    console.log(newProject, ' this is newProject in post route');
     res.render('project/new-content.ejs', {
       project: newProject
     });
@@ -65,12 +64,29 @@ router.post('/', async (req, res) => {
   }
 })
 
+//random route -- custom for random project link
+
+router.get('/random', async (req, res) => {
+  try {
+    const publishedProjects = await Project.find({publish: true});
+    const randomProject = publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
+    res.render('project/show.ejs', {
+      project: randomProject
+    })
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
+
 //show route
 
 router.get('/:id', async (req, res) => {
   try {
     const foundProject = await Project.findById(req.params.id);
-    console.log(foundProject, ' this is show foundProject');
     res.render('project/show.ejs', {
       project: foundProject
     })
@@ -114,6 +130,7 @@ router.put('/:id/publish', async (req, res) => {
   
   }
 })
+
 
 
 
