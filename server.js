@@ -29,7 +29,11 @@ app.use(express.static('public'));
 // controllers                                         //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-
+app.use('/adminController.js', adminController);
+app.use('/userController.js', userController);
+app.use('/projectController.js', projectController);
+app.use('/toolController.js', toolController);
+app.use('/messageController.js', messageController);
 
 
 

@@ -6,6 +6,9 @@
 // - messages written
 
 const mongoose = require('mongoose');
+const Tool 	   = require('./tool.js');
+const Project  = require('./project.js');
+const Message  = require('./message.js');
 
 const userSchema = new mongoose.Schema({
 	username: {
@@ -22,9 +25,9 @@ const userSchema = new mongoose.Schema({
 		required: false 
 	},
 	skillLevel: ['Apprentice', 'JourneyPerson', 'Master' ],
-	tools: [],		
-	projects: [], 
-	messages: []
+	tools: [Tool.schema],		
+	projects: [Project.schema], 
+	messages: [Message.schema]
 });
 
 const User = mongoose.model('User', userSchema);

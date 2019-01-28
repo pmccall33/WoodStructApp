@@ -7,6 +7,7 @@
 // - message board
 
 const mongoose = require('mongoose');
+const Tool = require('./tool.js')
 
 const projectSchema = new mongoose.Schema({
 	skill: String,
@@ -14,7 +15,7 @@ const projectSchema = new mongoose.Schema({
 	photos: [String],
 	text: String,
 	videos: [String],
-	tools: [String],
+	tools: [Tool.schema],
 	resources: [String],
 	messages: [String]
 })

@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const toolSchema = new mongoose.Schema({
 	skill: String,
-	skillLevel: ['Apprentice', 'Journeyperson', 'Master' ],
+	skillLevel: ['Apprentice', 'JourneyPerson', 'Master' ],
 	image: String,
 	videoUrl: String
 })
