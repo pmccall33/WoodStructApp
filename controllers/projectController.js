@@ -34,6 +34,7 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newProject = await Project.create(req.body);
+    console.log(newProject, ' this is newProject in post route');
     res.render('project/new-content.ejs', {
       project: newProject
     });
@@ -43,9 +44,30 @@ router.post('/', async (req, res) => {
     next(err);
   
   }
-
 })
 
+//put route -- for creating how-to project
+
+router.put('/:id', async (req, res) => {
+  try {
+    console.log(req.params.id);
+    console.log(req.body, ' this is req body put route');
+    const foundProject = await Project.findById(req.params.id);
+    // const foundProject = await Project.findOne({'project._id': req.params.id});
+    console.log(foundProject, ' this is foundProject');
+    foundProject.text.push(req.body.text);
+    foundProject.media.push(req.body.media);
+    foundProject.save();
+    res.render('project/new-content.ejs', {
+      project: foundProject
+    });
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
 
 
 

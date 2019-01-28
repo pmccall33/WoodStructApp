@@ -46,3 +46,7 @@ li {
   background-color: cadetblue;
   height: 100%;
 }
+
+.small-headline {
+  font-size: 10px;
+}
