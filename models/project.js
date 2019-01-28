@@ -7,16 +7,16 @@
 // - message board
 
 const mongoose = require('mongoose');
-const Tool = require('./tool.js')
+const Tool = require('./tool.js');
+const Resource = require('./resource.js');
 
 const projectSchema = new mongoose.Schema({
-	skill: String,
-	skillLevel: [String],
-	photos: [String],
-	text: String,
-	videos: [String],
-	tools: [Tool.schema],
-	resources: [String],
+	skill: [String],		// attach a list of skills involed in project
+	skillLevel: String,		// assign a skill level (apprentice, journeyperson, master)
+	media: [String],		// indexed photos and videos, REMEMBEr to add null if none
+	text: [String],			// Instructions
+	tools: [Tool.schema],	
+	resources: [Resource.schema],
 	messages: [String]
 })
 

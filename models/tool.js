@@ -7,10 +7,11 @@
 const mongoose = require('mongoose');
 
 const toolSchema = new mongoose.Schema({
-	skill: String,
-	skillLevel: ['Apprentice', 'JourneyPerson', 'Master' ],
-	image: String,
-	videoUrl: String
+	toolName: String,
+	toolImage: String,
+	videoUrl: String,
+	skill: String
+
 })
 
 const Tool = mongoose.model('Tool', toolSchema);
