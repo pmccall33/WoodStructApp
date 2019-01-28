@@ -2,3 +2,22 @@ body {
   background-color: lightblue;
 }
 
+.logo {
+  background-color: red;
+  height: 20vh;
+}
+
+nav {
+  background-color: orange;
+  height: 5vh;
+}
+
+main {
+  background-color: blue;
+  height: 60vh;
+}
+
+footer {
+  background-color: green;
+  height: 15vh;
+}
