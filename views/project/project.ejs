@@ -26,17 +26,17 @@
     <br>
     <ul>Apprentice Projects
       <% for (let i = 0; i < apprentice.length; i++) { -%>
-        <li><a href="#"><%=apprentice[i].title%></a></li>
+        <li><a href="/project/<%=apprentice[i]._id%>"><%=apprentice[i].title%></a></li>
       <% } -%>
     </ul>
     <ul>Journeyperson Projects
       <% for (let i = 0; i < journey.length; i++) { -%>
-        <li><a href="#"><%=journey[i].title%></a></li>
+        <li><a href="/project/<%=journey[i]._id%>"><%=journey[i].title%></a></li>
       <% } -%>
     </ul>
     <ul>Master Projects
       <% for (let i = 0; i < master.length; i++) { -%>
-        <li><a href="#"><%=master[i].title%></a></li>
+        <li><a href="/project/<%=master[i]._id%>"><%=master[i].title%></a></li>
       <% } -%>
     </ul>
   </main>

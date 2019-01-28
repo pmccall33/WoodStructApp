@@ -65,6 +65,23 @@ router.post('/', async (req, res) => {
   }
 })
 
+//show route
+
+router.get('/:id', async (req, res) => {
+  try {
+    const foundProject = await Project.findById(req.params.id);
+    console.log(foundProject, ' this is show foundProject');
+    res.render('project/show.ejs', {
+      project: foundProject
+    })
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
 //put routes -- for creating how-to project
 
 router.put('/:id', async (req, res) => {
