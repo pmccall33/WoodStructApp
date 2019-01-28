@@ -11,7 +11,8 @@ const Tool = require('./tool.js');
 const Resource = require('./resource.js');
 
 const projectSchema = new mongoose.Schema({
-	skill: [String],		// attach a list of skills involed in project
+	title: String,
+  skill: [String],		// attach a list of skills involed in project
 	skillLevel: String,		// assign a skill level (apprentice, journeyperson, master)
 	media: [String],		// indexed photos and videos, REMEMBEr to add null if none
 	text: [String],			// Instructions

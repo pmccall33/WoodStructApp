@@ -1,0 +1,64 @@
+<% include ../partials/header.ejs%>
+<div class="container-fluid">
+
+  <header>
+    <div class="row">
+      <div class="col-12 logo">LOGO</div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Random Project</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Login/Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-3">
+        <p>Title:</p>
+        <p>Project Difficulty:</p>
+      </div>
+      <div class="col-6">
+        <form action="/project" method="POST">
+          <p><input type="text" name="title"/><br></p>
+          <p><select name="skillLevel">
+            <option value="">--Please choose a difficulty--</option>
+            <option value="apprentice">Apprentice</option>
+            <option value="journeyperson">Journeyperson</option>
+            <option value="master">Master</option>
+          </select></p>
+          <button>Create Project</button>
+        </form>
+      <div class="col-3"></div>
+    </div>
+
+
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<% include ../partials/footer.ejs%>
