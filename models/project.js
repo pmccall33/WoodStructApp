@@ -11,7 +11,7 @@ const Tool = require('./tool.js')
 
 const projectSchema = new mongoose.Schema({
 	skill: String,
-	skillLevel: ['Apprentice', 'JourneyPerson', 'Master' ],
+	skillLevel: [String],
 	photos: [String],
 	text: String,
 	videos: [String],

@@ -8,7 +8,7 @@
 const mongoose = require('mongoose');
 const Tool 	   = require('./tool.js');
 const Project  = require('./project.js');
-const Message  = require('./message.js');
+const Message  = require('./messaging.js');
 
 const userSchema = new mongoose.Schema({
 	username: {
