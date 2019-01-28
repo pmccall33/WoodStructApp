@@ -6,7 +6,26 @@ const Project = require('../models/project.js');
 
 router.get('/', async (req, res) => {
   try {
-    res.render('project/project.ejs');
+    const publishedProjects = await Project.find({publish: true});
+    let apprenticeProj = [];
+    let journeyProj = [];
+    let masterProj = [];
+
+    for (let i = 0; i < publishedProjects.length; i++) {
+      if (publishedProjects[i].skillLevel === 'apprentice') {
+        apprenticeProj.push(publishedProjects[i]);
+      } else if (publishedProjects[i].skillLevel === 'journeyperson') {
+        journeyProj.push(publishedProjects[i]);
+      } else if (publishedProjects[i].skillLevel === 'master') {
+        masterProj.push(publishedProjects[i]);
+      }
+    }
+    res.render('project/project.ejs', {
+      projects: publishedProjects,
+      apprentice: apprenticeProj,
+      journey: journeyProj,
+      master: masterProj
+    });
 
   } catch (err) {
     console.log(err);
