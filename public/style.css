@@ -21,3 +21,11 @@ footer {
   background-color: green;
   height: 15vh;
 }
+
+ul  { 
+  display: inline;
+}
+
+li {
+  display: inline;
+}
