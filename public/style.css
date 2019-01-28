@@ -50,3 +50,7 @@ li {
 .small-headline {
   font-size: 10px;
 }
+
+.transparent input {
+  color: transparent;
+}

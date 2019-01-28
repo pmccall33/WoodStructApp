@@ -31,7 +31,14 @@
             Step text: <textarea rows="5" cols="60" name="text"></textarea><br><br>
             <button>Post Step</button>
           </form>
+
+          <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
+            <input type="hidden" name="publish" value="true">
+            <button>Publish Project</button>
+          </form>
+  
       </div>
+      
       <div class="col-3">
         <p class="small-headline">New <%=project.title%> Project</p>
         <% for (let i = 0; i < project.text.length; i++) { -%>

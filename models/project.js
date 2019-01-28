@@ -18,6 +18,7 @@ const projectSchema = new mongoose.Schema({
 	text: [String],			// Instructions
 	tools: [Tool.schema],	
 	resources: [Resource.schema],
+  publish: Boolean,
 	messages: [String]
 })
 

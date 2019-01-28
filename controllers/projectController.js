@@ -46,21 +46,31 @@ router.post('/', async (req, res) => {
   }
 })
 
-//put route -- for creating how-to project
+//put routes -- for creating how-to project
 
 router.put('/:id', async (req, res) => {
   try {
-    console.log(req.params.id);
-    console.log(req.body, ' this is req body put route');
     const foundProject = await Project.findById(req.params.id);
-    // const foundProject = await Project.findOne({'project._id': req.params.id});
-    console.log(foundProject, ' this is foundProject');
     foundProject.text.push(req.body.text);
     foundProject.media.push(req.body.media);
     foundProject.save();
     res.render('project/new-content.ejs', {
       project: foundProject
     });
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
+router.put('/:id/publish', async (req, res) => {
+  try {
+    const foundProject = await Project.findById(req.params.id);
+    foundProject.publish = req.body.publish;
+    foundProject.save();
+    res.redirect('/project');
         
   } catch (err) {
     console.log(err);
