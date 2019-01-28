@@ -12,7 +12,7 @@ const request         = require('superagent');
 const passString      = require('./extra_express/pass.js');
 // const adminController = require('./controllers/adminController.js');
 // const userController = require('./controllers/userController.js');
-// const projectController = require('./controllers/projectController.js');
+const projectController = require('./controllers/projectController.js');
 // const messageController = require('./controllers/messageController.js');
 // const toolController = require('./controllers/toolController.js');
 
@@ -34,11 +34,11 @@ app.use(express.static('public'));
 // controllers                                         //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-// app.use('/adminController.js', adminController);
-// app.use('/userController.js', userController);
-// app.use('/projectController.js', projectController);
-// app.use('/toolController.js', toolController);
-// app.use('/messageController.js', messageController);
+// app.use('/admin', adminController);
+// app.use('/user', userController);
+app.use('/project', projectController);
+// app.use('/tool', toolController);
+// app.use('/message', messageController);
 
 
 

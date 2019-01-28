@@ -29,3 +29,20 @@ ul  {
 li {
   display: inline;
 }
+
+/*project page*/
+
+.project-tools {
+  background-color: lavender;
+  height: 100%;
+}
+
+.project-resources {
+  background-color: lightgrey;
+  height: 100%;
+}
+
+.main-project-area {
+  background-color: cadetblue;
+  height: 100%;
+}

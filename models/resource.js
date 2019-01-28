@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Resource = require('./resource.js')
 
 const resourceSchema = new mongoose.Schema({
 	title: String,
@@ -7,6 +6,7 @@ const resourceSchema = new mongoose.Schema({
 	toolName: [String]
 })
 
+const Resource = mongoose.model('Resource', resourceSchema);
 
 module.exports = Resource;
 
