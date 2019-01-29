@@ -104,7 +104,7 @@ router.get('/logout', async (req, res) => {
     console.log(req.session, ' ------ logout req.session');
 
   req.session.destroy((err) => {
-    res.redirect('/user/login')
+    res.redirect('/')
   })
 });
 

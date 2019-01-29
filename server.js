@@ -47,11 +47,16 @@ app.use('/project', projectController);
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 app.get('/', (req, res) => {
-
-	console.log(req.session, ' req.session log');
-  res.render('index.ejs', {
-  	userId: req.session.loggedIn ? `user/${req.session.userId}` : '/#'
-  })
+  try {
+  	console.log(req.session, ' req.session log');
+    res.render('index.ejs', {
+    	userId: req.session.loggedIn ? `user/${req.session.userId}` : '/#'
+    })
+       
+  } catch (err) {
+    res.redirect('/');
+  
+  }
 });
 
 app.listen(PORT, () => {
