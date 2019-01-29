@@ -1,6 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const Project = require('../models/project.js');
+const express  = require('express');
+const router   = express.Router();
+const Project  = require('../models/project.js');
+const User     = require('../models/user.js');
 
 //index route
 
@@ -120,8 +121,13 @@ router.put('/:id', async (req, res) => {
 router.put('/:id/publish', async (req, res) => {
   try {
     const foundProject = await Project.findById(req.params.id);
+    const foundUser = await User.findById(req.session.userId);
     foundProject.publish = req.body.publish;
     foundProject.save();
+    console.log(foundProject, ' <--- foundProject');
+    foundUser.projects.push(foundProject);
+    foundUser.save();
+    console.log(foundUser, ' <--- founduser here -----');
     res.redirect('/project');
         
   } catch (err) {
