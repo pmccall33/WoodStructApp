@@ -98,6 +98,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
+// ----------- Logout --------------- //
 
 router.get('/logout', async (req, res) => {
     console.log(req.session, ' ------ logout req.session');
@@ -107,6 +108,22 @@ router.get('/logout', async (req, res) => {
   })
 });
 
+// --------------  Show Route --------------- //
+
+router.get('/:id', async (req, res) => {
+    try {
+        if (req.session) {
+            const foundUser =  await User.findById(req.session.userId);
+            res.render('user/show.ejs', {
+                foundUser: foundUser
+            });
+        } else {
+            res.redirect('/');
+        }
+    } catch (err) {
+        res.send(err)
+    }
+});
 
 
 
@@ -119,3 +136,8 @@ module.exports = router;
 
 
 // module.exports = router;
+
+
+
+
+
