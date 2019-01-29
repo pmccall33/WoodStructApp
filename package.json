@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/bogey1185/GA_Unit2-Project#readme",
   "dependencies": {
-    "bcrypt": "^3.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

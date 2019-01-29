@@ -11,7 +11,7 @@ const session         = require('express-session');
 const request         = require('superagent');
 const passString      = require('./extra_express/pass.js');
 // const adminController = require('./controllers/adminController.js');
-// const userController = require('./controllers/userController.js');
+const userController = require('./controllers/userController.js');
 const projectController = require('./controllers/projectController.js');
 // const messageController = require('./controllers/messageController.js');
 // const toolController = require('./controllers/toolController.js');
@@ -35,7 +35,7 @@ app.use(express.static('public'));
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 // app.use('/admin', adminController);
-// app.use('/user', userController);
+app.use('/user', userController);
 app.use('/project', projectController);
 // app.use('/tool', toolController);
 // app.use('/message', messageController);
