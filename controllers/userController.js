@@ -54,6 +54,7 @@ router.post('/login', async (req, res) => {
             req.session.username = extantUser.username
             req.session.loggedIn = true
             req.session.userId = extantUser._id;
+            console.log(req.session, '----- login req.session');
             res.redirect('/');
           } else {
             req.session.message = `Go away you fucking hacker. This incident has been reported.`;console.log("invalid password");
@@ -99,10 +100,12 @@ router.post('/register', async (req, res) => {
 
 
 router.get('/logout', async (req, res) => {
+    console.log(req.session, ' ------ logout req.session');
+
   req.session.destroy((err) => {
     res.redirect('/user/login')
   })
-})
+});
 
 
 
