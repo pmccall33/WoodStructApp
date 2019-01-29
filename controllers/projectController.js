@@ -53,6 +53,7 @@ router.get('/new', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
+
     const newProject = await Project.create(req.body);
     res.render('project/new-content.ejs', {
       project: newProject
