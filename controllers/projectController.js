@@ -37,7 +37,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-
 //new route
 
 router.get('/new', async (req, res) => {
@@ -57,6 +56,9 @@ router.post('/', async (req, res) => {
   try {
 
     const newProject = await Project.create(req.body);
+    console.log('+++++++++++++++++++++++++++++++++++++');
+    console.log(newProject, ' this is NEWPROJECT')
+    console.log('+++++++++++++++++++++++++++++++++++++');
     res.render('project/new-content.ejs', {
       project: newProject
     });
@@ -86,7 +88,6 @@ router.get('/random', async (req, res) => {
   
   }
 })
-
 
 // ------------ Project Show ------------- //
 
@@ -128,6 +129,25 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+//delete project route
+
+router.delete('/:id', async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const foundProject = await Project.findByIdAndRemove(req.params.id);
+    const foundUser = await User.findById(req.session.userId);
+
+    foundUser.projects.id(foundProject._id).remove();
+    foundUser.save();
+    res.redirect(`/user/${req.session.userId}`)
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
 router.put('/:id/publish', async (req, res) => {
   try {
     const foundProject = await Project.findById(req.params.id);
@@ -139,6 +159,50 @@ router.put('/:id/publish', async (req, res) => {
     foundUser.save();
     console.log(foundUser, ' <--- founduser here -----');
     res.redirect('/project');
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
+router.put('/:id/edit', async (req, res) => {
+  try {
+    const foundProject = await Project.findById(req.params.id);
+    res.render('project/edit.ejs', {
+      project: foundProject
+    })
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
+router.post('/:id/edit-target', async (req, res, next) => {
+  try {
+    const foundProject = await Project.findById(req.body.proj_id);
+    const parsedIdx = parseInt(req.body.index, 10);
+
+    res.render('project/edit.ejs', {
+      project: foundProject,
+      arrId: parsedIdx
+    })
+        
+  } catch (err) {
+    console.log(err);
+    next(err);
+  
+  }
+})
+
+router.put('/:id/update', async (req, res) => {
+  try {
+    //this is when we are done making changes
+    //and splicing back in
+    console.log('UPDATE ROUTE HIT')
         
   } catch (err) {
     console.log(err);

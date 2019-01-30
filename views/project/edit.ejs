@@ -1,0 +1,55 @@
+<% include ../partials/header.ejs%>
+<div class="container-fluid">
+
+  <header>
+    <div id="header-row" class="row d-flex">
+      <div class="col-12 logo d-flex">
+        <nav>
+          <ul class="d-flex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/project">Projects</a></li>
+            <li><a href="/project/random">Random Project</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/user/login">Login</a></li>
+            <li><a href="/user/logout">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-9">
+        <h1>New <%=project.title%> Project</h1>
+
+          <form action="/project/<%=project._id%>/update?_method=PUT" method="POST">
+            Image or video URL: <input type="text" name="media" value="<%=project.media[arrId]%>"><br><br>
+            Step text: <textarea rows="5" cols="60" name="text"><%=project.text[arrId]%></textarea><br><br>
+            <button>Edit Step</button>
+          </form>
+
+          <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
+            <input type="hidden" name="publish" value="true">
+            <button>Publish Project</button>
+          </form>
+      </div>
+      
+      <div class="col-3">
+        <p class="small-headline">New <%=project.title%> Project</p>
+        <% for (let i = 0; i < project.text.length; i++) { -%>
+          <p><img src="<%=project.media[i]%>" /></p>
+          <p><%=project.text[i]%></p>
+          <form action="/project/<%=project._id%>/edit-target" method="POST">
+            <input type="hidden" name="index" value="<%=i%>">
+            <input type="hidden" name="proj_id" value="<%=project._id%>">
+            <button>Edit Step</button>
+          </form>
+        <% } -%>
+      </div>
+      
+    </div>
+  </main>
+
+</div>
+<% include ../partials/footer.ejs%>

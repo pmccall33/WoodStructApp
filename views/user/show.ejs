@@ -2,7 +2,6 @@
 <p><%= message %>&nbsp;</p>
 <div class="container-fluid">
 
-  
   <header>
     <div id="header-row" class="row d-flex">
       <div class="col-12 logo d-flex">
@@ -21,14 +20,6 @@
   </header>
 
   <main>
-
-
-
-
-
-
-
-
     <div class="row">
       <div class="col-3">
         
@@ -39,14 +30,15 @@
         <a href="/project/new">Create A New Project</a>
 
         <% for (let i = 0; i < foundUser.projects.length; i++) { -%>
-     
-          <p><a href="/project/<%= foundUser.projects[i]._id %>"><%=foundUser.projects[i].title%></a>
-              <button>Edit</button>
-              <button>Delete</button>
-          </p>
-          
-
-
+          <form action="/project/<%=foundUser.projects[i]._id%>?_method=DELETE" method="POST">
+            <p><a href="/project/<%= foundUser.projects[i]._id %>"><%=foundUser.projects[i].title%></a>
+                <button>Delete</button>
+            </p>
+          </form>
+          <form action="/project/<%=foundUser.projects[i]._id%>?_method=PUT" method="POST">
+                <button>Edit</button>
+          </form>
+      
         <% } -%>
       </div>
       <div class="col-3">sidebar</div>
@@ -54,6 +46,18 @@
     <a href="/project">Back</a>
   </main>
 
-
 </div>
 <% include ../partials/footer.ejs%>
+
+
+
+
+
+
+
+
+
+
+
+
+
