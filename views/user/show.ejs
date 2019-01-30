@@ -1,6 +1,8 @@
 <% include ../partials/header.ejs%>
+<p><%= message %>&nbsp;</p>
 <div class="container-fluid">
 
+  
   <header>
     <div class="row">
       <div class="col-12 logo">LOGO</div>
@@ -35,7 +37,7 @@
         
       </div>
       <div class="col-6 main-project-area">
-        <h1>The <%=foundUser.userName%> Project</h1>
+        <h1><%=foundUser.username%>'s Projects</h1>
 
         <% for (let i = 0; i < foundUser.projects.length; i++) { -%>
      

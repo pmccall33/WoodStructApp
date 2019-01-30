@@ -19,7 +19,6 @@ router.get('/login', async (req, res) => {
         const message = req.session.message;
         req.session.message = '';
         res.render('user/login.ejs', {
-        	// console.log()
             message: message ? message: ''
         });
     } catch (err) {
@@ -50,15 +49,16 @@ router.post('/login', async (req, res) => {
         } else {
           if(bcrypt.compareSync(req.body.password, extantUser.password)) {
             const day = (new Date().toLocaleString('en-US', {weekday: 'long'}));
-            req.session.message = `Welcome back, ${extantUser.username}, hope you're having a nice ${day}`
+            req.session.message = `Howdy ${extantUser.username}, happy ${day}!`
             req.session.username = extantUser.username
             req.session.loggedIn = true
             req.session.userId = extantUser._id;
-            console.log(req.session, '----- login req.session');
+            console.log(req.session, ' <----- userController login req.session');
             res.redirect('/');
           } else {
-            req.session.message = `Go away you fucking hacker. This incident has been reported.`;console.log("invalid password");
-            req.session.loggedIn = false
+            req.session.message = `Try Again?`;
+            console.log("invalid password");
+            req.session.loggedIn = false;
             res.redirect('/user/login');
 
           }
@@ -73,7 +73,7 @@ router.post('/login', async (req, res) => {
 router.post('/register', async (req, res) => {
     try {
         const extantUser = await User.findOne({ username: req.body.username});
-        console.log(extantUser, 'extant user');
+        console.log(extantUser, ' <------ extant user');
         if(!extantUser) {
           const hashedPwd = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8));
           console.log(hashedPwd, 'hashpwd');
@@ -101,10 +101,10 @@ router.post('/register', async (req, res) => {
 // ----------- Logout --------------- //
 
 router.get('/logout', async (req, res) => {
-    console.log(req.session, ' ------ logout req.session');
+    console.log(req.session, ' <------ logout req.session');
 
   req.session.destroy((err) => {
-    res.redirect('/')
+    res.redirect('/user/login')
   })
 });
 
@@ -115,7 +115,8 @@ router.get('/:id', async (req, res) => {
         if (req.session) {
             const foundUser =  await User.findById(req.session.userId);
             res.render('user/show.ejs', {
-                foundUser: foundUser
+                foundUser: foundUser,
+                message: req.session.message
             });
         } else {
             res.redirect('/');

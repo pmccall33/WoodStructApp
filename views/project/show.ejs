@@ -36,7 +36,8 @@
         </div>
       </div>
       <div class="col-6 main-project-area">
-        <h1>The <%=project.title%> Project</h1>
+        <h2><%= user.username%>'s</h2>
+        <h2>The <%=project.title%> Project</h2>
 
         <% for (let i = 0; i < project.text.length; i++) { -%>
           <p><img src="<%=project.media[i]%>" /></p>
