@@ -1,13 +1,45 @@
-<%- include ../partials/header.ejs %>
+<% include ../partials/header.ejs%>
+<div class="container-fluid">
+
+  <header> 
+    <div id="header-row" class="row d-flex">
+      <div class="col-12 logo d-flex">
+        <nav>
+          <ul class="d-flex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/project">Projects</a></li>
+            <li><a href="/project/random">Random Project</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/user/login">Login</a></li>
+            <li><a href="/user/logout">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <form action="/user/login" method="POST">
+      <input type="text" name="username" placeholder="username" /><br />
+      <input type="password" name="password" placeholder="password" /><br />
+      <button>Log in</button>
+    </form>
+
+    <small><a href="/user/register">Sign up!</a></small>
+    
+  </main>
 
 
-<form action="/user/login" method="POST">
-  <input type="text" name="username" placeholder="username" /><br />
-  <input type="password" name="password" placeholder="password" /><br />
-  <button>Log in</button>
-</form>
-
-<small><a href="/user/register">Sign up!</a></small>
 
 
-<%- include ../partials/footer.ejs %>
+
+
+
+
+
+
+
+
+</div>
+<% include ../partials/footer.ejs%>

@@ -1,4 +1,96 @@
-body {
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Header */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#header-row {
+  height: 17vh;
+  border-bottom: 10px solid rgba(0, 0, 0, .7);
+}
+.logo {
+  background: url("https://i.imgur.com/MMvhXdp.png"), url("https://i.imgur.com/J5Oac2R.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 300px 150px, cover;
+  background-position: left, center;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.logo li {
+  display: inline;
+  padding: 0 15px;
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 20px;
+}
+
+.logo a {
+  color: black;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: lightgrey;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Main Page */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+main {
+  min-height: 600px;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Home Page */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.video {
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  flex-direction: column;
+  font-family: 'Fanwood Text', serif;
+  border: 2px solid black;
+  padding: 0;
+  margin: 25px 0 0 0;
+  background-color: grey;
+}
+
+#titleVod {
+  font-size: 40px;
+}
+
+#descrVod {
+  font-size: 16px;
+  text-align: justify;
+  padding: 10px;
+}
+
+.vod {
+  width: 560px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Footer  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+footer {
+  height: 7vh;
+  background-color: rgb(191, 191, 191);
+}
+
+#footer-row {
+  justify-content: center;
+  
+}
+
+#footer-row p {
+  padding-top: 15px;
+}
+
+
+/*body {
   background-color: lightblue;
 }
 
@@ -32,7 +124,7 @@ nav li {
 
 /*project page*/
 
-.project-tools {
+/*.project-tools {
   background-color: lavender;
   height: 100%;
 }
@@ -53,4 +145,4 @@ nav li {
 
 .transparent input {
   color: transparent;
-}
+}*/

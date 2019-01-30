@@ -1,14 +1,11 @@
-<% include ./partials/header.ejs%>
+ <% include ./partials/header.ejs%>
 <div class="container-fluid">
 
-  <header>
-    <div class="row">
-      <div class="col-12 logo">LOGO</div>
-    </div>
-    <div class="row">
-      <div class="col-12">
+  <header> 
+    <div id="header-row" class="row d-flex">
+      <div class="col-12 logo d-flex">
         <nav>
-          <ul>
+          <ul class="d-flex">
             <li><a href="/">Home</a></li>
             <li><a href="<%= userId %>">My Account</a></li>
             <li><a href="/project">Projects</a></li>
@@ -24,7 +21,15 @@
 
   <main>
     <div class="row">
-      <div class="col-6">video of day</div>
+      <div class="col-6">
+        <div class="row video d-flex">
+          <p id="titleVod">Video of the Day</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HRjVJGg0xsw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="vod">
+            <p id="descrVod">For today's video of the day, celebrated English woodworker Paul Sellers offers his "Top 10 Woodworking Tips and Tricks". Enjoy! </p>
+          </div>
+        </div>
+      </div>
       <div class="col-6">right side graphic</div>
     </div>
   </main>
