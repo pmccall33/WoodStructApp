@@ -8,6 +8,8 @@ const User     = require('../models/user.js');
 router.get('/', async (req, res) => {
   try {
     const publishedProjects = await Project.find({publish: true});
+    const foundUser = await User.findById(req.session.userId);
+    console.log(foundUser, ' <--------- project foundUser');
     let apprenticeProj = [];
     let journeyProj = [];
     let masterProj = [];
@@ -84,13 +86,16 @@ router.get('/random', async (req, res) => {
 })
 
 
-//show route
+// ------------ Project Show ------------- //
 
 router.get('/:id', async (req, res) => {
   try {
+    console.log(req.session, '<----- project show req.session');
     const foundProject = await Project.findById(req.params.id);
+    const foundUser = await User.findById(req.session.userId);
     res.render('project/show.ejs', {
-      project: foundProject
+      project: foundProject,
+      user: foundUser
     })
         
   } catch (err) {
@@ -105,11 +110,13 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const foundProject = await Project.findById(req.params.id);
+    const foundUser = await User.findById(req.session.userId);
     foundProject.text.push(req.body.text);
     foundProject.media.push(req.body.media);
     foundProject.save();
     res.render('project/new-content.ejs', {
-      project: foundProject
+      project: foundProject,
+      user: foundUser
     });
         
   } catch (err) {

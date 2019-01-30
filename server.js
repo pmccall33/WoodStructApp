@@ -48,9 +48,14 @@ app.use('/project', projectController);
 
 app.get('/', (req, res) => {
   try {
-  	console.log(req.session, ' req.session log');
+  	console.log(req.session, ' <------ server.js req.session');
+  	const message = req.session.message;
+  	req.session.message = '';
+  	console.log(message, ' <====== server.js req.session.message');
+
     res.render('index.ejs', {
-    	userId: req.session.loggedIn ? `user/${req.session.userId}` : '/#'
+    	userId: req.session.loggedIn ? `user/${req.session.userId}` : '/#',
+    	message: message ? message : ''
     })
        
   } catch (err) {
@@ -58,6 +63,15 @@ app.get('/', (req, res) => {
   
   }
 });
+
+// app.get('/', (req, res, next) => {
+//   const message = req.session.message; //capture the message
+//   req.session.message = "" // clear the message
+
+//   res.render('home.ejs', {
+//     message: message ? message : ""
+//   })
+// })
 
 app.listen(PORT, () => {
   console.log(`Server now running on ${PORT}`);
