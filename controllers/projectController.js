@@ -114,9 +114,11 @@ router.put('/:id', async (req, res) => {
   try {
     const foundProject = await Project.findById(req.params.id);
     const foundUser = await User.findById(req.session.userId);
+    
     foundProject.text.push(req.body.text);
     foundProject.media.push(req.body.media);
     foundProject.save();
+    
     res.render('project/new-content.ejs', {
       project: foundProject,
       user: foundUser

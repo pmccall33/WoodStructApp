@@ -38,13 +38,14 @@
       <div class="col-3">
         <p class="small-headline">New <%=project.title%> Project</p>
         <% for (let i = 0; i < project.text.length; i++) { -%>
-          <p><img src="<%=project.media[i]%>" /></p>
-          <p><%=project.text[i]%></p>
-          <form action="/project/<%=project._id%>/edit-target" method="POST">
-            <input type="hidden" name="index" value="<%=i%>">
-            <input type="hidden" name="proj_id" value="<%=project._id%>">
-            <button>Edit Step</button>
-          </form>
+            <p><img src="<%=project.media[i]%>" /></p>
+            <%console.log(project.media[i], ' proj media HEREERRERERERE')%>
+            <p><%=project.text[i]%></p>
+            <form action="/project/<%=project._id%>/edit-target" method="POST">
+              <input type="hidden" name="index" value="<%=i%>">
+              <input type="hidden" name="proj_id" value="<%=project._id%>">
+              <button>Edit Step</button>
+            </form>
         <% } -%>
       </div>
     </div>
