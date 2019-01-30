@@ -37,14 +37,20 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 main {
-  min-height: 600px;
+  min-height: 565px;
+  background-image: url(https://s3.amazonaws.com/finewoodworking.s3.tauntoncloud.com/app/uploads/2016/09/05200849/011251028_dream-shop-main.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
-          /* Home Page */
+          /* Home Page VOD */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+.outer {
+  /*margin: 0;*/
+}
 .video {
   justify-content: center;
   align-items: center;
@@ -54,7 +60,7 @@ main {
   border: 2px solid black;
   padding: 0;
   margin: 25px 0 0 0;
-  background-color: grey;
+  background-color: rgba(255, 255, 255, .8);
 }
 
 #titleVod {
@@ -72,6 +78,54 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Home Page Content */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.main-content {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-container {
+  height: 30em;
+  width: 40em;
+  background-color: blue;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, .8);
+  border: 2px solid black;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-container h1 {
+  font-family: 'American Typewriter', serif;
+  font-size: 4em;
+  font-weight: 600;
+}
+
+#main-container h3 {
+  font-family: 'American Typewriter', serif;
+  font-weight: 600;
+}
+
+#main-container p {
+  font-family: 'Fanwood Text', serif;
+  font-size: 1.5em;
+  text-align: justify;
+  padding: 0 10px 0 10px;
+}
+
+#events {
+  overflow-y: scroll;
+  font-size: .9em;
+}
+
+#events a {
+  text-decoration: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Footer  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -82,67 +136,9 @@ footer {
 
 #footer-row {
   justify-content: center;
-  
 }
 
 #footer-row p {
   padding-top: 15px;
 }
 
-
-/*body {
-  background-color: lightblue;
-}
-
-.logo {
-  background-color: red;
-  height: 20vh;
-}
-
-nav {
-  background-color: orange;
-  height: 5vh;
-}
-
-main {
-  background-color: blue;
-  height: 60vh;
-}
-
-footer {
-  background-color: green;
-  height: 15vh;
-}
-
-ul  { 
-  display: inline;
-}
-
-nav li {
-  display: inline;
-}
-
-/*project page*/
-
-/*.project-tools {
-  background-color: lavender;
-  height: 100%;
-}
-
-.project-resources {
-  background-color: lightgrey;
-  height: 100%;
-}
-
-.main-project-area {
-  background-color: cadetblue;
-  height: 100%;
-}
-
-.small-headline {
-  font-size: 10px;
-}
-
-.transparent input {
-  color: transparent;
-}*/
