@@ -19,8 +19,6 @@
   </header>
 
   <main>
-    <a href="/project/new">Create New Project</a>
-    <br>
     <ul>Apprentice Projects
       <% for (let i = 0; i < apprentice.length; i++) { -%>
         <li><a href="/project/<%=apprentice[i]._id%>"><%=apprentice[i].title%></a></li>
