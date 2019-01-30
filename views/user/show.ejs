@@ -35,10 +35,12 @@
       </div>
       <div class="col-6 main-project-area">
         <h1><%=foundUser.username%>'s Projects</h1>
+        
+        <a href="/project/new">Create A New Project</a>
 
         <% for (let i = 0; i < foundUser.projects.length; i++) { -%>
      
-          <p><a href="#"><%=foundUser.projects[i].title%></a>
+          <p><a href="/project/<%= foundUser.projects[i]._id %>"><%=foundUser.projects[i].title%></a>
               <button>Edit</button>
               <button>Delete</button>
           </p>

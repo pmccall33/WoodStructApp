@@ -73,9 +73,11 @@ router.post('/', async (req, res) => {
 router.get('/random', async (req, res) => {
   try {
     const publishedProjects = await Project.find({publish: true});
+    const foundUser = await User.findById(req.session.userId);
     const randomProject = publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
     res.render('project/show.ejs', {
-      project: randomProject
+      project: randomProject,
+      user: foundUser
     })
         
   } catch (err) {
