@@ -18,24 +18,33 @@
     </div>
   </header>
   
-  <main>
+  <main class="new-main">
     <section id="divider"></section>
     <div class="row">
-      <div class="col-3">
-        <p>Title:</p>
-        <p>Project Difficulty:</p>
-      </div>
+      <div class="col-3"></div>
       <div class="col-6">
-        <form action="/project" method="POST">
-          <p><input type="text" name="title"/><br></p>
-          <p><select name="skillLevel">
-            <option value="">--Please choose a difficulty--</option>
-            <option value="apprentice">Apprentice</option>
-            <option value="journeyperson">Journeyperson</option>
-            <option value="master">Master</option>
-          </select></p>
-          <button>Create Project</button>
-        </form>
+        <div class="row proj-create d-flex">
+          <h1>Create New Project</h1>
+          <div class="d-flex inner-create">
+         
+            <div class="col-6 field-names">
+              <p>Title:</p>
+              <p>Project Difficulty:</p>
+            </div>
+            <div class="col-6 inputs">
+              <form action="/project" method="POST">
+                <p><input type="text" name="title"/><br></p>
+                <p><select name="skillLevel">
+                  <option value="">--Please choose a difficulty--</option>
+                  <option value="apprentice">Apprentice</option>
+                  <option value="journeyperson">Journeyperson</option>
+                  <option value="master">Master</option>
+                </select></p>
+                <button>Create Project</button>
+              </form>
+            </div>
+          </div>
+        </div>
       <div class="col-3"></div>
     </div>
   </main>

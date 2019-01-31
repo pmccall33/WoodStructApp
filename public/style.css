@@ -225,6 +225,29 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Create new project page    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.new-main {
+  background: rgb(153, 148, 139);
+}
+.proj-create {
+  background-color: rgba(255, 255, 255, .7);
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  border-left: 20px solid rgba(0, 0, 0, .5);
+  border-right: 20px solid rgba(0, 0, 0, .5);
+  border-bottom: 20px solid rgba(0, 0, 0, .5);
+  font-family: 'Fanwood Text', serif;
+}
+
+.proj-create h1 {
+  font-family: 'American Typewriter', serif;
+  
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Project show page  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
