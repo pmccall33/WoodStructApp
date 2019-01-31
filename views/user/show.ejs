@@ -35,8 +35,8 @@
                 <button>Delete</button>
             </p>
           </form>
-          <!-- CHANGE ROUTE TO EDIT ONLY -->
-          <form action="/project/<%=foundUser.projects[i]._id%>/?_method=PUT" method="POST">
+          
+          <form action="/project/<%=foundUser.projects[i]._id%>/edit?_method=PUT" method="POST">
                 <button>Edit</button>
           </form>
       

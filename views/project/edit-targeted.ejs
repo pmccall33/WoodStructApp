@@ -23,16 +23,18 @@
       <div class="col-9">
         <h1>New <%=project.title%> Project</h1>
 
-          <form action="/project/<%=project._id%>?_method=PUT" method="POST">
-            Image or video URL: <input type="text" name="media"><br><br>
-            Step text: <textarea rows="5" cols="60" name="text"></textarea><br><br>
-            <button>Post Step</button>
+          <form action="/project/<%=project._id%>/update?_method=PUT" method="POST">
+            Image or video URL: <input type="text" name="media" value="<%=project.media[arrId]%>"><br><br>
+            Step text: <textarea rows="5" cols="60" name="text"><%=project.text[arrId]%></textarea><br><br>
+            <input type="hidden" name="index" value="<%=arrId%>">
+            <input type="hidden" name="proj_id" value="<%=project._id%>">
+            <button>Edit Step</button>
           </form>
 
-          <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
+          <!-- <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
             <input type="hidden" name="publish" value="true">
             <button>Publish Project</button>
-          </form>
+          </form> -->
       </div>
       
       <div class="col-3">
@@ -47,6 +49,7 @@
           </form>
         <% } -%>
       </div>
+      
     </div>
   </main>
 
