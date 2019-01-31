@@ -73,8 +73,9 @@ router.post('/', async (req, res, next) => {
 router.get('/random', async (req, res, next) => {
   try {
     const publishedProjects = await Project.find({publish: true});
-    const foundUser = await User.findById(req.session.userId);
     const randomProject = await publishedProjects[Math.floor(Math.random() * publishedProjects.length)];
+    const randProjId = await randomProject._id;
+    const foundUser = await User.findOne({'projects._id': randProjId});
     res.render('project/show.ejs', {
       project: randomProject,
       user: foundUser
@@ -94,7 +95,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     console.log(req.session, '<----- project show req.session');
     const foundProject = await Project.findById(req.params.id);
-    const foundUser = await User.findById(req.session.userId);
+    const foundUser = await User.findOne({'projects._id': req.params.id});
     res.render('project/show.ejs', {
       project: foundProject,
       user: foundUser

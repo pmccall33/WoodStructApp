@@ -225,14 +225,44 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
-          /* How To page  */
+          /* Project show page  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .project-show {
   min-height: 76vh;
   background: url('https://i.imgur.com/xoMujHZ.jpg');
-  background-size: cover;
 }
+
+.main-project-area-show img {
+  max-height: 50vh;
+  max-width:  50vw;
+}
+
+.main-project-area-show p {
+  max-height: 45vh;
+  max-width:  45vw;
+  margin-top: 15px;
+  font-family: 'Fanwood Text', serif;
+  font-size: 1.4em;
+}
+
+.main-project-area-show {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .7);
+  border-left: 20px solid rgba(0, 0, 0, .5);
+  border-right: 20px solid rgba(0, 0, 0, .5);
+  font-family: 'American Typewriter', serif;
+
+}
+
+.main-project-area-show h1 {
+  border: 2px solid black;
+  padding: 5px;
+  margin-top: 15px;
+}
+
 
 
 

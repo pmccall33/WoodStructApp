@@ -33,19 +33,19 @@
           </div>
         </div>
       </div>
-      <div class="col-6 main-project-area">
+      <div class="col-6 main-project-area-show d-flex">
 
-        <h2>The <%=project.title%> Project</h2>
+        <h1>The <%=project.title%> Project</h1>
+        <small>by <%=user.username%></small>
 
         <% for (let i = 0; i < project.text.length; i++) { -%>
-          <p><img src="<%=project.media[i]%>" /></p>
+          <img src="<%=project.media[i]%>" />
           <p><%=project.text[i]%></p>
         <% } -%>
 
       </div>
-      <div class="col-3">sidebar</div>
+      <div class="col-3"></div>
     </div>
-    <a href="/project">Back</a>
   </main>
 </div>
 <% include ../partials/footer.ejs%>
