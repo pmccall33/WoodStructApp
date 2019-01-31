@@ -29,10 +29,15 @@ router.get('/login', async (req, res) => {
 // ---------- Register Page -------------- //
 
 router.get('/register', async (req, res) => {
+    if (req.session.message === 'Incorrect username or password. Please try again.'){
+        req.session.message = '';
+    }
     try {
         const message = req.session.message;
         req.session.message = '';
-        res.render('user/register.ejs');
+        res.render('user/register.ejs', {
+            message: message ? message: ''
+        });
     } catch (err) {
         res.send(err)
     }
@@ -85,11 +90,11 @@ router.post('/register', async (req, res) => {
           req.session.loggedIn = true;
           req.session.username = createdUser.username;
           req.session.userId = createdUser._id;
-          req.session.message = `Thanks for signing up, ${createdUser.username}`
+          req.session.message = `Thanks for signing up, ${createdUser.username}!`
           console.log('now redirecting')
           res.redirect('/')
         } else {
-            req.session.message = `Username ${req.body.username} already taken`
+            req.session.message = `Username '${req.body.username}' already taken!`
             res.redirect('/user/register')
         }
         
