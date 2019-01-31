@@ -240,11 +240,116 @@ main {
   border-right: 20px solid rgba(0, 0, 0, .5);
   border-bottom: 20px solid rgba(0, 0, 0, .5);
   font-family: 'Fanwood Text', serif;
+  border-radius: 0 0 20px 20px;
 }
 
 .proj-create h1 {
   font-family: 'American Typewriter', serif;
   
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Create new content page    */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.new-content-main {
+  background: rgb(153, 148, 139);
+}
+
+.preview-section {
+  border-left: 5px solid rgba(0, 0, 0, .5);
+  height: 72vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.preview-section h3 {
+  font-family: 'American Typewriter', serif;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.preview-header {
+  width: 25vw;
+  background-color: rgba(255, 255, 255, .5);
+  justify-content: center;
+  border-left: 5px solid rgba(0, 0, 0, .5);
+  border-right: 5px solid rgba(0, 0, 0, .5);
+  border-bottom: 5px solid rgba(0, 0, 0, .5);
+}
+
+.preview-content {
+  width: 25vw;
+  height: 60vh;
+  background-color: rgba(255, 255, 255, .5);
+  align-items: center;
+  justify-content: flex-end;
+  border-left: 5px solid rgba(0, 0, 0, .5);
+  border-right: 5px solid rgba(0, 0, 0, .5);
+  flex-direction: column;
+
+}
+
+.prev-inner-header {
+  background-color: rgba(255, 255, 255, .5);
+  border-left: 5px solid rgba(0, 0, 0, .5);
+  border-right: 5px solid rgba(0, 0, 0, .5);
+  width: 25vw;
+  height: 4vh;
+  justify-content: center;
+}
+.prev-inner-header .small-headline {
+  font-family: 'American Typewriter', serif;
+}
+
+.preview-content-inner {
+  text-align: center;
+  overflow-y: scroll;
+  width: 200px;
+
+}
+
+.preview-content-inner img {
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.preview-content-inner p {
+  font-family: 'Fanwood Text', serif;
+  font-size: 10px;
+  max-height: 180px;
+  max-width: 180px;
+  text-align: justify;
+}
+
+.add-new-section {
+  border-right: 5px solid rgba(0, 0, 0, .5);
+  height: 72vh;
+  font-family: 'Fanwood Text', serif;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.add-new-section h1 {
+  font-family: 'American Typewriter', serif;
+  text-align: center;
+}
+
+.nc-field-names {
+  flex-direction: column;
+}
+
+.nc-field-names p {
+  margin-left: 10px;
+}
+
+#p2 {
+  margin-top: 10px;
+}
+
+.nc-inputs {
+  flex-direction: column;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
@@ -258,6 +363,7 @@ main {
 .main-project-area-show img {
   max-height: 50vh;
   max-width:  50vw;
+  border-radius: 20px;
 }
 
 .main-project-area-show p {
@@ -286,12 +392,6 @@ main {
   padding: 5px;
   margin-top: 15px;
 }
-
-
-
-
-
-
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
           /* Footer  */

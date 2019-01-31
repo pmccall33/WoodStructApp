@@ -18,38 +18,61 @@
     </div>
   </header>
   
-  <main>
+  <main class="new-content-main">
     <section id="divider"></section>
     <div class="row">
-      <div class="col-9">
-        <h1>New <%=project.title%> Project</h1>
+      <div class="col-8 add-new-section">
+        <h1><%=project.title%></h1><br>
+        <div class="row">
+          <div class="col-2 nc-field-names d-flex">
+            <p>Media URL:</p>
+            <p id="p2">Step Text:</p>
+          </div>
+          <div class="col-10 nc-inputs d-flex">
+            <form action="/project/<%=project._id%>?_method=PUT" method="POST">
+              <input type="text" name="media"><br><br>
+              <textarea rows="5" cols="60" name="text"></textarea><br><br>
+              <button>Submit</button>
+            </form>
+            <br><br><br><br><br><br>
+            <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
+              <input type="hidden" name="publish" value="true">
+              <button>Publish Project</button>
+            </form>
+          </div>
+        </div>
 
-          <form action="/project/<%=project._id%>?_method=PUT" method="POST">
-            Image or video URL: <input type="text" name="media"><br><br>
-            Step text: <textarea rows="5" cols="60" name="text"></textarea><br><br>
-            <button>Submit</button>
-          </form>
-
-          <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
-            <input type="hidden" name="publish" value="true">
-            <button>Publish Project</button>
-          </form>
       </div>
       
-      <div class="col-3">
-        <p class="small-headline">New <%=project.title%> Project</p>
-        <% for (let i = 0; i < project.text.length; i++) { -%>
-          <p><img src="<%=project.media[i]%>" /></p>
-          <p><%=project.text[i]%></p>
-          <form action="/project/<%=project._id%>/edit-target" method="POST">
-            <input type="hidden" name="index" value="<%=i%>">
-            <input type="hidden" name="proj_id" value="<%=project._id%>">
-            <button>Edit Step</button>
-          </form>
-        <% } -%>
+      <div class="col-4 preview-section d-flex">
+        <div class="row preview-header d-flex">
+          <h3>Project Preview</h3>
+        </div>
+        <div class="row">
+          <div class="col-12 prev-inner-header d-flex">
+            <h5 class="small-headline"><%=project.title%></h5>
+          </div>
+        </div>
+        <div class="row preview-content">
+          <div class="preview-content-inner">
+            <% for (let i = 0; i < project.text.length; i++) { -%>
+              <p><img src="<%=project.media[i]%>" /></p>
+              <br>
+              <p><%=project.text[i]%></p>
+              <form action="/project/<%=project._id%>/edit-target" method="POST">
+                <input type="hidden" name="index" value="<%=i%>">
+                <input type="hidden" name="proj_id" value="<%=project._id%>">
+                <button>Edit Step</button>
+              </form><br>
+            <% } -%>
+            
+          </div>
+          
+        </div>
       </div>
     </div>
   </main>
 
 </div>
 <% include ../partials/footer.ejs%>
+
