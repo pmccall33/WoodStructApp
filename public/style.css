@@ -182,7 +182,7 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
-          /* My Account page */
+/* My Account page and Project TOC page */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .main-project-area {
@@ -217,6 +217,7 @@ main {
 .main-project-area h1 {
   font-family: 'American Typewriter', serif;
   padding: 5px;
+  font-size: 30px;
 }
 
 .main-project-area a {

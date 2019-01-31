@@ -20,21 +20,39 @@
   
   <main>
     <section id="divider"></section>
-    <ul>Apprentice Projects
-      <% for (let i = 0; i < apprentice.length; i++) { -%>
-        <li><a href="/project/<%=apprentice[i]._id%>"><%=apprentice[i].title%></a></li>
-      <% } -%>
-    </ul>
-    <ul>Journeyperson Projects
-      <% for (let i = 0; i < journey.length; i++) { -%>
-        <li><a href="/project/<%=journey[i]._id%>"><%=journey[i].title%></a></li>
-      <% } -%>
-    </ul>
-    <ul>Master Projects
-      <% for (let i = 0; i < master.length; i++) { -%>
-        <li><a href="/project/<%=master[i]._id%>"><%=master[i].title%></a></li>
-      <% } -%>
-    </ul>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-12 main-project-area d-flex">
+            <div id="user-title"><h1>Woodworking Projects</h1></div><br>
+            <div class="project-div">
+              <ul><h4>Apprentice Projects</h4>
+                <% for (let i = 0; i < apprentice.length; i++) { -%>
+                  <li><a href="/project/<%=apprentice[i]._id%>"><%=apprentice[i].title%></a></li>
+                <% } -%>
+              </ul>
+
+              <ul><h4>Journeyperson Projects</h4>
+                <% for (let i = 0; i < journey.length; i++) { -%>
+                  <li><a href="/project/<%=journey[i]._id%>"><%=journey[i].title%></a></li>
+                <% } -%>
+              </ul>
+
+              <ul><h4>Master Projects</h4>
+                <% for (let i = 0; i < master.length; i++) { -%>
+                  <li><a href="/project/<%=master[i]._id%>"><%=master[i].title%></a></li>
+                <% } -%>
+              </ul>
+
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
   </main>
 
 </div>
