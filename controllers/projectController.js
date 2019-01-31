@@ -227,10 +227,6 @@ router.put('/:id/update', async (req, res, next) => {
     foundProject.text.splice(req.body.index, 1, req.body.text);
     foundProject.save();
 
-    foundUser.projects.id(req.body.proj_id).remove();
-    foundUser.projects.push(foundProject);
-    foundUser.save();
-
     res.render('project/new-content.ejs', {
       project: foundProject
     })

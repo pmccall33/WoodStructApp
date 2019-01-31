@@ -28,13 +28,9 @@
             Step text: <textarea rows="5" cols="60" name="text"><%=project.text[arrId]%></textarea><br><br>
             <input type="hidden" name="index" value="<%=arrId%>">
             <input type="hidden" name="proj_id" value="<%=project._id%>">
-            <button>Edit Step</button>
+            <button>Submit</button>
           </form>
 
-          <!-- <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
-            <input type="hidden" name="publish" value="true">
-            <button>Publish Project</button>
-          </form> -->
       </div>
       
       <div class="col-3">
@@ -49,7 +45,6 @@
           </form>
         <% } -%>
       </div>
-      
     </div>
   </main>
 
