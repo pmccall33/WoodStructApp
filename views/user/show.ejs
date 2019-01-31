@@ -1,5 +1,4 @@
 <% include ../partials/header.ejs%>
-<p><%= message %>&nbsp;</p>
 <div class="container-fluid">
 
   <header>
@@ -20,32 +19,73 @@
   </header>
   
   <main>
-    <section id="divider"></section>
+    <section id="divider"><p><%= message %>&nbsp;</p></section>
     <div class="row">
-      <div class="col-3">
+      <div class="col-4">
         
       </div>
-      <div class="col-6 main-project-area">
-        <h1><%=foundUser.username%>'s Projects</h1>
-        
-        <a href="/project/new">Create A New Project</a>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-12 main-project-area d-flex">
+            <div id="user-title"><h1><%=foundUser.username%>'s Projects</h1></div><br>
+              <a href="/project/new">Create A New Project</a><br>
+            <div class="project-div">
+              <ul><h4>Apprentice Projects</h4>
+                <% for (let i = 0; i < apprentice.length; i++) { -%>
+                  <li>
+                    <form action="/project/<%=apprentice[i]._id%>?_method=DELETE" method="POST">
+                      <p><a href="/project/<%= apprentice[i]._id %>"><%=apprentice[i].title%></a>
+                          <button>Delete</button>
+                      </p>
+                    </form>
+                    
+                    <form action="/project/<%=apprentice[i]._id%>/edit?_method=PUT" method="POST">
+                          <button>Edit</button>
+                    </form><br>
+                  </li>
+                <% } -%>
+              </ul>
 
-        <% for (let i = 0; i < foundUser.projects.length; i++) { -%>
-          <form action="/project/<%=foundUser.projects[i]._id%>?_method=DELETE" method="POST">
-            <p><a href="/project/<%= foundUser.projects[i]._id %>"><%=foundUser.projects[i].title%></a>
-                <button>Delete</button>
-            </p>
-          </form>
-          
-          <form action="/project/<%=foundUser.projects[i]._id%>/edit?_method=PUT" method="POST">
-                <button>Edit</button>
-          </form>
-      
-        <% } -%>
+              <ul><h4>Journeyperson Projects</h4>
+                <% for (let i = 0; i < journey.length; i++) { -%>
+                  <li>
+                    <form action="/project/<%=journey[i]._id%>?_method=DELETE" method="POST">
+                      <p><a href="/project/<%= journey[i]._id %>"><%=journey[i].title%></a>
+                          <button>Delete</button>
+                      </p>
+                    </form>
+                    
+                    <form action="/project/<%=journey[i]._id%>/edit?_method=PUT" method="POST">
+                          <button>Edit</button>
+                    </form><br>
+                  </li>
+                <% } -%>
+              </ul>
+
+              <ul><h4>Master Projects</h4>
+                <% for (let i = 0; i < master.length; i++) { -%>
+                  <li>
+                    <form action="/project/<%=master[i]._id%>?_method=DELETE" method="POST">
+                      <p><a href="/project/<%= master[i]._id %>"><%=master[i].title%></a>
+                          <button>Delete</button>
+                      </p>
+                    </form>
+                    
+                    <form action="/project/<%=master[i]._id%>/edit?_method=PUT" method="POST">
+                          <button>Edit</button>
+                    </form><br>
+                  </li>
+                <% } -%>
+              </ul>
+
+
+            </div>
+            
+          </div>
+        </div>
       </div>
-      <div class="col-3">sidebar</div>
+      <div class="col-4"></div>
     </div>
-    <a href="/project">Back</a>
   </main>
 
 </div>

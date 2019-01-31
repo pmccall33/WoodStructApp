@@ -119,9 +119,19 @@ router.get('/:id', async (req, res) => {
     try {
         if (req.session) {
             const foundUser =  await User.findById(req.session.userId);
+            const apprentice = foundUser.projects.filter(project => 
+                project.skillLevel === 'apprentice');
+            const journey = foundUser.projects.filter(project => 
+                project.skillLevel === 'journeyperson');
+            const master = foundUser.projects.filter(project => 
+                project.skillLevel === 'master');   
+    
             res.render('user/show.ejs', {
                 foundUser: foundUser,
-                message: req.session.message
+                message: req.session.message, 
+                apprentice: apprentice,
+                journey: journey,
+                master: master
             });
         } else {
             res.redirect('/');

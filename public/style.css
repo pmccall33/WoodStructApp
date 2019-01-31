@@ -142,7 +142,7 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
-          /* Login Page  */
+          /* Login/Register Page  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .login-main {
@@ -152,7 +152,6 @@ main {
 }
 
 .login-box {
-  /*height: 20vh;*/
   width: 20vw;
   background-color: rgba(255, 255, 255, .9);
   align-items: center;
@@ -181,6 +180,49 @@ main {
 .login-box a {
   padding-bottom: 10px;
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* My Account page */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.main-project-area {
+  
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .7);
+  min-height: 72vh;
+  font-family: 'Fanwood Text', serif;
+}
+
+#user-title {
+  border: 5px solid black;
+  margin: 20px 0 0 0;
+  
+}
+
+.project-div {
+  text-align: left;
+}
+
+.project-div form {
+  display: inline-block;
+}
+
+.project-div li {
+  list-style: none;
+  margin-left: 40px;
+}
+
+.main-project-area h1 {
+  font-family: 'American Typewriter', serif;
+  padding: 5px;
+}
+
+.main-project-area a {
+  text-decoration: none;
+}
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Footer  */
