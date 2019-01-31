@@ -152,7 +152,7 @@ main {
 }
 
 .login-box {
-  height: 20vh;
+  /*height: 20vh;*/
   width: 20vw;
   background-color: rgba(255, 255, 255, .9);
   align-items: center;
@@ -160,11 +160,12 @@ main {
   border: 2px solid black;
   border-radius: 10px;
   font-family: 'Fanwood Text', serif;
+  padding-top: 10px;
 }
 
 .login-box input {
   border: 2px solid lightgrey;
-  margin: 1px;
+  margin: 2px;
   border-radius: 10px;
   font-family: 'Fanwood Text', serif;
   padding-left: 10px;
@@ -175,6 +176,10 @@ main {
   border-radius: 10px;
   border: 2px solid lightgrey;
   font-family: 'Fanwood Text', serif;
+}
+
+.login-box a {
+  padding-bottom: 10px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   

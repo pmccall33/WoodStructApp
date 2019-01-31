@@ -17,7 +17,7 @@ const User = require('../models/user.js');
 router.get('/login', async (req, res) => {
     try {
         const message = req.session.message;
-        req.session.message = '';
+        // req.session.message = '';
         res.render('user/login.ejs', {
             message: message ? message: ''
         });
@@ -44,8 +44,8 @@ router.post('/login', async (req, res) => {
     try {
         const extantUser = await User.findOne({ username: req.body.username });
         if(!extantUser) {
-        	req.session.message = 'Please try again.';
-        	res.redirect('/login')
+        	req.session.message = 'Incorrect username or password. Please try again.';
+        	res.redirect('/user/login')
         } else {
           if(bcrypt.compareSync(req.body.password, extantUser.password)) {
             const day = (new Date().toLocaleString('en-US', {weekday: 'long'}));
@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
             console.log(req.session, ' <----- userController login req.session');
             res.redirect('/');
           } else {
-            req.session.message = `Try Again?`;
+            req.session.message = 'Incorrect username or password. Please try again.';
             console.log("invalid password");
             req.session.loggedIn = false;
             res.redirect('/user/login');
