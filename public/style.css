@@ -1,11 +1,15 @@
+.container-fluid {
+  padding: 0;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Header */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #header-row {
   height: 17vh;
-  border-bottom: 10px solid rgba(0, 0, 0, .7);
+  width: 101.05vw;
 }
+
 .logo {
   background: url("https://i.imgur.com/MMvhXdp.png"), url("https://i.imgur.com/J5Oac2R.jpg");
   background-repeat: no-repeat, no-repeat;
@@ -31,13 +35,24 @@
   color: lightgrey;
 }
 
+#divider {
+  background-color: rgba(0, 0, 0, .7);
+  height: 4vh;
+  width: 100vw;
+  padding: 0;
+  color: white;
+  font-family: 'Fanwood Text', serif;
+  font-size: 16px;
+  text-align: right;
+  padding: 6px 6px 0 0;
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Main Page */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 main {
-  min-height: 565px;
+  min-height: 76vh;
   background-image: url(https://s3.amazonaws.com/finewoodworking.s3.tauntoncloud.com/app/uploads/2016/09/05200849/011251028_dream-shop-main.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,18 +63,19 @@ main {
           /* Home Page VOD */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.outer {
-  /*margin: 0;*/
+.outer-vod {
+  justify-content: center;
+  align-items: center;
 }
+
 .video {
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
   flex-direction: column;
   font-family: 'Fanwood Text', serif;
   border: 2px solid black;
   padding: 0;
-  margin: 25px 0 0 0;
+  margin: 25px 0 0 25px;
   background-color: rgba(255, 255, 255, .8);
 }
 
@@ -126,6 +142,42 @@ main {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* Login Page  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.login-main {
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.login-box {
+  height: 20vh;
+  width: 20vw;
+  background-color: rgba(255, 255, 255, .9);
+  align-items: center;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: 'Fanwood Text', serif;
+}
+
+.login-box input {
+  border: 2px solid lightgrey;
+  margin: 1px;
+  border-radius: 10px;
+  font-family: 'Fanwood Text', serif;
+  padding-left: 10px;
+}
+
+.login-box button {
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid lightgrey;
+  font-family: 'Fanwood Text', serif;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Footer  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -140,5 +192,6 @@ footer {
 
 #footer-row p {
   padding-top: 15px;
+  font-family: 'Fanwood Text', serif;
 }
 

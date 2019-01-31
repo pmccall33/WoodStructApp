@@ -17,16 +17,28 @@
       </div>
     </div>
   </header>
-
+  
   <main>
+    <section id="divider"></section>
 
-    <form action="/user/login" method="POST">
-      <input type="text" name="username" placeholder="username" /><br />
-      <input type="password" name="password" placeholder="password" /><br />
-      <button>Log in</button>
-    </form>
+    <div class="row">
+      <div class="col-12 d-flex login-main">
 
-    <small><a href="/user/register">Sign up!</a></small>
+        <div class="row login-box">
+          <div class="col-12">
+            <form action="/user/login" method="POST">
+              <input type="text" name="username" placeholder="username" /><br />
+              <input type="password" name="password" placeholder="password" /><br />
+              <button>Log in</button>
+            </form>
+
+            <small><a href="/user/register">Sign up!</a></small>            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
     
   </main>
 
