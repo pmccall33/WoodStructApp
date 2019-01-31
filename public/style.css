@@ -224,6 +224,18 @@ main {
   text-decoration: none;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+          /* How To page  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.project-show {
+  min-height: 76vh;
+  background: url('https://i.imgur.com/xoMujHZ.jpg');
+  background-size: cover;
+}
+
+
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
           /* Footer  */
