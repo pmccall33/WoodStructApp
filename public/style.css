@@ -229,8 +229,7 @@ main {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .project-show {
-  min-height: 76vh;
-  background: url('https://i.imgur.com/xoMujHZ.jpg');
+  background: rgb(153, 148, 139);
 }
 
 .main-project-area-show img {
@@ -244,6 +243,7 @@ main {
   margin-top: 15px;
   font-family: 'Fanwood Text', serif;
   font-size: 1.4em;
+  text-align: justify;
 }
 
 .main-project-area-show {
@@ -253,6 +253,7 @@ main {
   background-color: rgba(255, 255, 255, .7);
   border-left: 20px solid rgba(0, 0, 0, .5);
   border-right: 20px solid rgba(0, 0, 0, .5);
+  border-bottom: 20px solid rgba(0, 0, 0, .5);
   font-family: 'American Typewriter', serif;
 
 }
@@ -267,7 +268,9 @@ main {
 
 
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
           /* Footer  */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
