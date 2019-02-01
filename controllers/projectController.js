@@ -46,7 +46,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/new', async (req, res, next) => {
   try {
-    res.render('project/new.ejs');
+    res.render('project/new.ejs', {
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
+    });
         
   } catch (err) {
     console.log(err);
