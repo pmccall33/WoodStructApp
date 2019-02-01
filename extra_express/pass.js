@@ -1,0 +1,1 @@
+module.exports = "this is David and Peter's secret string asdfjkl;w$^%@$)oanviubuinasonvoiadnvapndo";
