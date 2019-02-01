@@ -62,7 +62,6 @@ router.get('/new', async (req, res, next) => {
 //which will allow updates to project
 router.post('/', async (req, res, next) => {
   try {
-
     const newProject = await Project.create(req.body);
     res.render('project/new-content.ejs', {
       project: newProject,
@@ -98,7 +97,7 @@ router.get('/random', async (req, res, next) => {
 })
 
 // ------------ Project Show ------------- //
-// shows completed project
+// shows completed projects
 
 router.get('/:id', async (req, res, next) => {
   try {
@@ -127,6 +126,7 @@ router.put('/:id', upload.single('imageFile'), async (req, res, next) => {
     const foundUser = await User.findById(req.session.userId);
     foundProject.text.push(req.body.text);
 
+    //creates image file for upload
     const imagePost = new Image;
     const imageFilepath = '../uploads/' + req.file.filename;
     imagePost.title = req.body.title;
@@ -188,6 +188,8 @@ router.put('/:id/publish', async (req, res, next) => {
   try {
     const foundProject = await Project.findById(req.params.id);
     const foundUser = await User.findById(req.session.userId);
+    //checks if it was previously published to avoid repushing a project 
+    //to the db wihtout removing the old bersion first.
     if (foundProject.publish) {
       foundUser.projects.id(req.params.id).remove();
       foundUser.projects.push(foundProject);
@@ -251,8 +253,10 @@ router.put('/:id/update', upload.single('imageFile'), async (req, res, next) => 
   try {
     const foundProject = await Project.findById(req.body.proj_id);
     const foundUser = await User.findById(req.session.userId);
+    //uses splice to insert new text in location of old
     foundProject.text.splice(req.body.index, 1, req.body.text);
 
+    //multer related code for creating and storing new photo
     const imagePost = new Image;
     const imageFilepath = '../uploads/' + req.file.filename;
     imagePost.title = req.body.title;
@@ -260,6 +264,7 @@ router.put('/:id/update', upload.single('imageFile'), async (req, res, next) => 
     imagePost.image.contentType = req.file.mimetype;
     await imagePost.save();
 
+    //uses splice to insert new image in location of old
     foundProject.images.splice(req.body.index, 1, imagePost);
     foundProject.save();
 

@@ -1,11 +1,3 @@
-// ##projects //difficulty, type, 
-// - photos
-// - text
-// - videos
-// - [tools]
-// - [resource]
-// - message board
-
 const mongoose  = require('mongoose');
 const Tool      = require('./tool.js');
 const Resource  = require('./resource.js');
