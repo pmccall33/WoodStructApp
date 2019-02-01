@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
   	console.log(message, ' <====== server.js req.session.message');
 
     res.render('index.ejs', {
-    	userBarId: req.session.loggedIn ? `user/${req.session.userId}` : '/user/login',
+    	userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login',
     	message: message ? message : ''
     })
        

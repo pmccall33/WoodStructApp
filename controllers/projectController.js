@@ -32,7 +32,7 @@ router.get('/', async (req, res, next) => {
       apprentice: apprenticeProj,
       journey: journeyProj,
       master: masterProj,
-      userBarId: req.session.loggedIn ? `user/${req.session.userId}` : '/user/login',
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     });
 
   } catch (err) {
@@ -65,7 +65,8 @@ router.post('/', async (req, res, next) => {
 
     const newProject = await Project.create(req.body);
     res.render('project/new-content.ejs', {
-      project: newProject
+      project: newProject,
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login',
     });
         
   } catch (err) {
@@ -141,7 +142,8 @@ router.put('/:id', upload.single('imageFile'), async (req, res, next) => {
     
     res.render('project/new-content.ejs', {
       project: foundProject,
-      user: foundUser
+      user: foundUser,
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login',
     });
         
   } catch (err) {
@@ -211,7 +213,8 @@ router.put('/:id/edit', async (req, res, next) => {
   try {
     const foundProject = await Project.findById(req.params.id);
     res.render('project/new-content.ejs', {
-      project: foundProject
+      project: foundProject,
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     })
         
   } catch (err) {
@@ -231,7 +234,8 @@ router.post('/:id/edit-target', async (req, res, next) => {
 
     res.render('project/edit-targeted.ejs', {
       project: foundProject,
-      arrId: parsedIdx
+      arrId: parsedIdx, 
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     })
         
   } catch (err) {
@@ -262,7 +266,8 @@ router.put('/:id/update', upload.single('imageFile'), async (req, res, next) => 
     fs.unlinkSync(imageFilepath); 
 
     res.render('project/new-content.ejs', {
-      project: foundProject
+      project: foundProject, 
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     })
         
   } catch (err) {

@@ -127,7 +127,8 @@ router.get('/:id', async (req, res) => {
                 message: req.session.message, 
                 apprentice: apprentice,
                 journey: journey,
-                master: master
+                master: master, 
+                userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
             });
         } else {
             res.redirect('/');
