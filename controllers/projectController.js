@@ -31,7 +31,8 @@ router.get('/', async (req, res, next) => {
       projects: publishedProjects,
       apprentice: apprenticeProj,
       journey: journeyProj,
-      master: masterProj
+      master: masterProj,
+      userBarId: req.session.loggedIn ? `user/${req.session.userId}` : '/user/login',
     });
 
   } catch (err) {
