@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 // database connection                                 //
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
-const connectionString = 'mongodb://localhost/wwrc';
+const connectionString = process.env.MONGODB_URI || 'mongodb://localhost/wwrc';
  
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
