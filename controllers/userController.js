@@ -31,7 +31,8 @@ router.get('/register', async (req, res) => {
         const message = req.session.message;
         req.session.message = '';
         res.render('user/register.ejs', {
-            message: message ? message: ''
+            message: message ? message: '',
+            userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
         });
     } catch (err) {
         res.send(err)
