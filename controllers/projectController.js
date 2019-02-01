@@ -181,7 +181,7 @@ router.put('/:id/publish', async (req, res, next) => {
 router.put('/:id/edit', async (req, res, next) => {
   try {
     const foundProject = await Project.findById(req.params.id);
-    res.render('project/edit.ejs', {
+    res.render('project/new-content.ejs', {
       project: foundProject
     })
         
