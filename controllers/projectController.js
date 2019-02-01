@@ -83,7 +83,8 @@ router.get('/random', async (req, res, next) => {
     const foundUser = await User.findOne({'projects._id': randProjId});
     res.render('project/show.ejs', {
       project: randomProject,
-      user: foundUser
+      user: foundUser,
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     })
         
   } catch (err) {
