@@ -104,7 +104,8 @@ router.get('/:id', async (req, res, next) => {
     const foundUser = await User.findOne({'projects._id': req.params.id});
     res.render('project/show.ejs', {
       project: foundProject,
-      user: foundUser
+      user: foundUser,
+      userBarId: req.session.loggedIn ? `/user/${req.session.userId}` : '/user/login'
     })
         
   } catch (err) {
