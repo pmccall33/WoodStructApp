@@ -6,9 +6,10 @@
 // - [resource]
 // - message board
 
-const mongoose = require('mongoose');
-const Tool = require('./tool.js');
-const Resource = require('./resource.js');
+const mongoose  = require('mongoose');
+const Tool      = require('./tool.js');
+const Resource  = require('./resource.js');
+const Image     = require('./image.js');
 
 const projectSchema = new mongoose.Schema({
 	title: String,
@@ -19,7 +20,8 @@ const projectSchema = new mongoose.Schema({
 	tools: [Tool.schema],	
 	resources: [Resource.schema],
   publish: Boolean,
-	messages: [String]
+	messages: [String],
+  images: [Image.schema]
 })
 
 const Project = mongoose.model('Project', projectSchema);

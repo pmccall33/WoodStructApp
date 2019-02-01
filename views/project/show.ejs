@@ -38,7 +38,7 @@
         <h6>by <%=user.username%></h6>
 
         <% for (let i = 0; i < project.text.length; i++) { -%>
-          <img src="<%=project.media[i]%>" /><br>
+          <img src="/project/img/<%=project.images[i]._id%>" /><br>
           <p><%=project.text[i]%></p><br>
         <% } -%>
 

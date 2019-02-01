@@ -1,7 +1,11 @@
-const express  = require('express');
-const router   = express.Router();
-const Project  = require('../models/project.js');
-const User     = require('../models/user.js');
+const express   = require('express');
+const router    = express.Router();
+const Project   = require('../models/project.js');
+const User      = require('../models/user.js');
+const multer    = require('multer');
+const fs        = require('fs');
+const upload    = multer({dest: '../uploads/'});
+const Image     = require('../models/image.js');
 
 //index route - loads TOC for all projects
 
@@ -109,14 +113,26 @@ router.get('/:id', async (req, res, next) => {
 })
 
 //put routes -- used to add new content to in progress project
+//updated for multer
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', upload.single('imageFile'), async (req, res, next) => {
   try {
     const foundProject = await Project.findById(req.params.id);
     const foundUser = await User.findById(req.session.userId);
     foundProject.text.push(req.body.text);
-    foundProject.media.push(req.body.media);
+
+    const imagePost = new Image;
+    const imageFilepath = '../uploads/' + req.file.filename;
+    imagePost.title = req.body.title;
+    imagePost.image.data = fs.readFileSync(imageFilepath);
+    imagePost.image.contentType = req.file.mimetype;
+    await imagePost.save();
+
+    //add the image to the project too!
+    foundProject.images.push(imagePost);
     foundProject.save();
+
+    fs.unlinkSync(imageFilepath); 
     
     res.render('project/new-content.ejs', {
       project: foundProject,
@@ -128,6 +144,14 @@ router.put('/:id', async (req, res, next) => {
     next(err);
   
   }
+})
+
+//route for serving images
+
+router.get('/img/:id', async (req, res, next) => {
+  const img = await Image.findById(req.params.id);
+  res.set('Content-Type', img.image.contentType);
+  res.send(img.image.data)
 })
 
 //delete project route -- NOTE: Make sure it deletes everywhere
@@ -214,16 +238,23 @@ router.post('/:id/edit-target', async (req, res, next) => {
 
 //update route
 
-router.put('/:id/update', async (req, res, next) => {
+router.put('/:id/update', upload.single('imageFile'), async (req, res, next) => {
   try {
-    console.log(req.body);
-
     const foundProject = await Project.findById(req.body.proj_id);
     const foundUser = await User.findById(req.session.userId);
-
-    foundProject.media.splice(req.body.index, 1, req.body.media);
     foundProject.text.splice(req.body.index, 1, req.body.text);
+
+    const imagePost = new Image;
+    const imageFilepath = '../uploads/' + req.file.filename;
+    imagePost.title = req.body.title;
+    imagePost.image.data = fs.readFileSync(imageFilepath);
+    imagePost.image.contentType = req.file.mimetype;
+    await imagePost.save();
+
+    foundProject.images.splice(req.body.index, 1, imagePost);
     foundProject.save();
+
+    fs.unlinkSync(imageFilepath); 
 
     res.render('project/new-content.ejs', {
       project: foundProject
@@ -235,6 +266,5 @@ router.put('/:id/update', async (req, res, next) => {
   
   }
 })
-
 
 module.exports = router;

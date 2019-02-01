@@ -24,21 +24,19 @@
         <h1><%=project.title%></h1><br>
         <div class="row">
           <div class="col-2 nc-field-names d-flex">
-            <p>Media URL:</p>
+            <p>Upload Photo:</p>
             <p id="p2">Step Text:</p>
           </div>
           <div class="col-10 nc-inputs d-flex">
-            <form action="/project/<%=project._id%>?_method=PUT" method="POST">
-              <input type="text" name="media"><br><br>
+            <form action="/project/<%=project._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+              title: <input type="text" name="title" placeholder="Enter image title"><br />
+              file: <input type="file" name="imageFile"><br />
+              <br><br>
               <textarea rows="5" cols="60" name="text"></textarea><br><br>
               <button>Submit</button>
             </form>
             <br><br><br><br><br><br>
-            <!-- add multer here -->
-
-              TEST
-              <br><br><br>
-            <!-- test -->
+           
             <form action="/project/<%=project._id%>/publish?_method=PUT" method="POST">
               <input type="hidden" name="publish" value="true">
               <button>Publish Project</button>
@@ -59,8 +57,9 @@
         </div>
         <div class="row preview-content">
           <div class="preview-content-inner">
+
             <% for (let i = 0; i < project.text.length; i++) { -%>
-              <p><img src="<%=project.media[i]%>" /></p>
+              <p><img src="/project/img/<%=project.images[i]._id%>" /></p>
               <br>
               <p><%=project.text[i]%></p>
               <form action="/project/<%=project._id%>/edit-target" method="POST">
@@ -75,6 +74,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
 </div>
