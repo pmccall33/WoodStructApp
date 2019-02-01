@@ -114,12 +114,9 @@ router.put('/:id', async (req, res, next) => {
   try {
     const foundProject = await Project.findById(req.params.id);
     const foundUser = await User.findById(req.session.userId);
-    console.log(foundProject, ' foundProject BEFORE pushes');
     foundProject.text.push(req.body.text);
     foundProject.media.push(req.body.media);
-    console.log(foundProject, ' foundProject AFTER pushes but BEFORE SAVE');
     foundProject.save();
-    console.log(foundProject, ' foundProject AFTER SAVE');
     
     res.render('project/new-content.ejs', {
       project: foundProject,
@@ -238,16 +235,6 @@ router.put('/:id/update', async (req, res, next) => {
   
   }
 })
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;

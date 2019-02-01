@@ -1,9 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
-// const bcrypt  = require('bcryptjs');
-
-// const User    = require('../models/user.js');
-
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -144,14 +138,6 @@ router.get('/:id', async (req, res) => {
 
 
 module.exports = router;
-
-
-
-
-
-
-
-// module.exports = router;
 
 
 
