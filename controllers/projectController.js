@@ -128,7 +128,7 @@ router.put('/:id', upload.single('imageFile'), async (req, res, next) => {
 
     //creates image file for upload
     const imagePost = new Image;
-    const imageFilepath = '../uploads/' + req.file.filename;
+    const imageFilepath = './uploads/' + req.file.filename;
     imagePost.title = req.body.title;
     imagePost.image.data = fs.readFileSync(imageFilepath);
     imagePost.image.contentType = req.file.mimetype;
@@ -258,7 +258,7 @@ router.put('/:id/update', upload.single('imageFile'), async (req, res, next) => 
 
     //multer related code for creating and storing new photo
     const imagePost = new Image;
-    const imageFilepath = '../uploads/' + req.file.filename;
+    const imageFilepath = './uploads/' + req.file.filename;
     imagePost.title = req.body.title;
     imagePost.image.data = fs.readFileSync(imageFilepath);
     imagePost.image.contentType = req.file.mimetype;
