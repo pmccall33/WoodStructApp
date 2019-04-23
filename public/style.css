@@ -371,6 +371,7 @@ main {
   font-family: 'Fanwood Text', serif;
   font-size: 1.4em;
   text-align: justify;
+  white-space: pre-wrap;
 }
 
 .main-project-area-show {
