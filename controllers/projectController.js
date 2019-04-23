@@ -4,7 +4,7 @@ const Project   = require('../models/project.js');
 const User      = require('../models/user.js');
 const multer    = require('multer');
 const fs        = require('fs');
-const upload    = multer({dest: '../uploads/'});
+const upload    = multer({dest: './uploads/'});
 const Image     = require('../models/image.js');
 
 //index route - loads TOC for all projects
