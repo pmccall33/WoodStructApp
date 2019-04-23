@@ -187,7 +187,6 @@ main {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .main-project-area {
-  
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -198,8 +197,7 @@ main {
 
 #user-title {
   border: 5px solid black;
-  margin: 20px 0 0 0;
-  
+  margin: 20px 0 0 0; 
 }
 
 .project-div {
@@ -232,6 +230,7 @@ main {
 .new-main {
   background: rgb(153, 148, 139);
 }
+
 .proj-create {
   background-color: rgba(255, 255, 255, .7);
   justify-content: center;
@@ -246,7 +245,6 @@ main {
 
 .proj-create h1 {
   font-family: 'American Typewriter', serif;
-  
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
@@ -308,7 +306,6 @@ main {
   text-align: center;
   overflow-y: scroll;
   width: 200px;
-
 }
 
 .preview-content-inner img {
@@ -385,7 +382,6 @@ main {
   border-right: 20px solid rgba(0, 0, 0, .5);
   border-bottom: 20px solid rgba(0, 0, 0, .5);
   font-family: 'American Typewriter', serif;
-
 }
 
 .main-project-area-show h1 {
