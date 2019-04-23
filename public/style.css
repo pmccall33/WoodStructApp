@@ -317,9 +317,10 @@ main {
 .preview-content-inner p {
   font-family: 'Fanwood Text', serif;
   font-size: 10px;
-  max-height: 180px;
+  /*max-height: 180px;*/
   max-width: 180px;
   text-align: justify;
+  white-space: pre-wrap;
 }
 
 .add-new-section {
