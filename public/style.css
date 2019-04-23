@@ -365,7 +365,7 @@ main {
 }
 
 .main-project-area-show p {
-  max-height: 45vh;
+  /*max-height: 45vh;*/
   max-width:  45vw;
   margin-top: 15px;
   font-family: 'Fanwood Text', serif;
